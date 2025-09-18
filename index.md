@@ -276,7 +276,7 @@ Reference Audio：
 #### Reference:
 That includes requiring background checks for teachers and other school employees, rights for student expulsion, strengthening oversight
 <video width="320" height="140" controls>
-  <source src="en2zh/Sample1/ref@RD_Radio1_S00005.mp4" type="video/mp4">
+  <source src="en2zh/sample1/ref@RD_Radio1_S00005.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
@@ -285,35 +285,35 @@ That includes requiring background checks for teachers and other school employee
         <td>
 
 <video  width="330" height="170" controls>
-  <source src="en2zh/Sample1/TTS@RD_Radio1_S00005_1.mp4" type="video/mp4">
+  <source src="en2zh/sample1/TTS@RD_Radio1_S00005_1.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 <figcaption>Zero-shot TTS</figcaption>
         </td>
         <td>
 <video  width="330" height="170" controls>
-  <source src="en2zh/Sample1/M1@RD_Radio1_S00005_1.mp4" type="video/mp4">
+  <source src="en2zh/sample1/M1@RD_Radio1_S00005_1.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 <figcaption>M1</figcaption>
         </td>
         <td>
 <video  width="330" height="170" controls>
-  <source src="en2zh/Sample1/M2@RD_Radio1_S00005_1.mp4" type="video/mp4">
+  <source src="en2zh/sample1/M2@RD_Radio1_S00005_1.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 <figcaption>M2</figcaption>
         </td>
         <td>
 <video  width="330" height="170" controls>
-  <source src="en2zh/Sample1/M4@RD_Radio1_S00005_1.mp4" type="video/mp4">
+  <source src="en2zh/sample1/M4@RD_Radio1_S00005_1.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 <figcaption>M4</figcaption>
         </td>
     <td>
 <video  width="330" height="170" controls>
-  <source src="en2zh/Sample1/M5_Ours@RD_Radio1_S00005_1.mp4" type="video/mp4">
+  <source src="en2zh/sample1/M5_Ours@RD_Radio1_S00005_1.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 <figcaption>M5 (Ours)</figcaption>
@@ -329,7 +329,7 @@ That includes requiring background checks for teachers and other school employee
 #### Reference:
  In Congress, House Democrats have delivered for the people and honored their will by overwhelmingly passing H.R. 6, the American Dream and Promise Act, sent to the Senate over 160 days ago.
 <video width="320" height="140" controls>
-  <source src="en2zh/Sample2/ref@WDA_VeronicaEscobar0_S00008.mp4" type="video/mp4">
+  <source src="en2zh/sample2/ref@WDA_VeronicaEscobar0_S00008.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
@@ -338,35 +338,35 @@ That includes requiring background checks for teachers and other school employee
         <td>
 
 <video  width="330" height="170" controls>
-  <source src="en2zh/Sample2/TTS@WDA_VeronicaEscobar0_S00008_2.mp4" type="video/mp4">
+  <source src="en2zh/sample2/TTS@WDA_VeronicaEscobar0_S00008_2.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 <figcaption>Zero-shot TTS</figcaption>
         </td>
         <td>
 <video  width="330" height="170" controls>
-  <source src="en2zh/Sample2/M1@WDA_VeronicaEscobar0_S00008_2.mp4" type="video/mp4">
+  <source src="en2zh/sample2/M1@WDA_VeronicaEscobar0_S00008_2.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 <figcaption>M1</figcaption>
         </td>
         <td>
 <video  width="330" height="170" controls>
-  <source src="en2zh/Sample2/M2@WDA_VeronicaEscobar0_S00008_2.mp4" type="video/mp4">
+  <source src="en2zh/sample2/M2@WDA_VeronicaEscobar0_S00008_2.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 <figcaption>M2</figcaption>
         </td>
         <td>
 <video  width="330" height="170" controls>
-  <source src="en2zh/Sample2/M4@WDA_VeronicaEscobar0_S00008_2.mp4" type="video/mp4">
+  <source src="en2zh/sample2/M4@WDA_VeronicaEscobar0_S00008_2.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 <figcaption>M4</figcaption>
         </td>
     <td>
 <video  width="330" height="170" controls>
-  <source src="en2zh/Sample2/M5_Ours@WDA_VeronicaEscobar0_S00008_2.mp4" type="video/mp4">
+  <source src="en2zh/sample2/M5_Ours@WDA_VeronicaEscobar0_S00008_2.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 <figcaption>M5 (Ours)</figcaption>
