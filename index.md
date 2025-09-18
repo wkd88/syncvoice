@@ -1,4 +1,4 @@
-## Sync & Speak: Towards Video Dubbing with Vision-Augmented Pretrained TTS Model
+## SyncVoice: Towards Video Dubbing with Vision-Augmented Pretrained TTS Model
 
 [Result in GRID Dub 2.0 Setting](#Setting1V2C) \
 [Result in EN-EN Test-set](#Setting2V2C) \
