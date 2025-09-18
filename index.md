@@ -380,7 +380,7 @@ That includes requiring background checks for teachers and other school employee
 #### Reference:
 Reversing the tide of addiction will take a comprehensive, thoughtful approach and must include strategies for treatment, prevention, education, support for individuals in recovery, and increased interdiction.
 <video width="320" height="140" controls>
-  <source src="en2zh/Sample3/ref@WRA_KellyAyotte_S00014.mp4" type="video/mp4">
+  <source src="en2zh/sample3/ref@WRA_KellyAyotte_S00014.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
@@ -389,35 +389,35 @@ Reversing the tide of addiction will take a comprehensive, thoughtful approach a
         <td>
 
 <video  width="330" height="170" controls>
-  <source src="en2zh/Sample3/TTS@WRA_KellyAyotte_S00014_2.mp4" type="video/mp4">
+  <source src="en2zh/sample3/TTS@WRA_KellyAyotte_S00014_2.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 <figcaption>Zero-shot TTS</figcaption>
         </td>
         <td>
 <video  width="330" height="170" controls>
-  <source src="en2zh/Sample3/M1@WRA_KellyAyotte_S00014_2.mp4" type="video/mp4">
+  <source src="en2zh/sample3/M1@WRA_KellyAyotte_S00014_2.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 <figcaption>M1</figcaption>
         </td>
         <td>
 <video  width="330" height="170" controls>
-  <source src="en2zh/Sample3/M2@WRA_KellyAyotte_S00014_2.mp4" type="video/mp4">
+  <source src="en2zh/sample3/M2@WRA_KellyAyotte_S00014_2.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 <figcaption>M2</figcaption>
         </td>
         <td>
 <video  width="330" height="170" controls>
-  <source src="en2zh/Sample3/M4@WRA_KellyAyotte_S00014_2.mp4" type="video/mp4">
+  <source src="en2zh/sample3/M4@WRA_KellyAyotte_S00014_2.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 <figcaption>M4</figcaption>
         </td>
     <td>
 <video  width="330" height="170" controls>
-  <source src="en2zh/Sample3/M5_Ours@WRA_KellyAyotte_S00014_2.mp4" type="video/mp4">
+  <source src="en2zh/sample3/M5_Ours@WRA_KellyAyotte_S00014_2.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 <figcaption>M5 (Ours)</figcaption>
