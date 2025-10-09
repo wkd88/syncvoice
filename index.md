@@ -97,23 +97,23 @@ Reference Audio：
 </table>
 
 ### Sample #3
-#### Script: Set white in e nine now.
+#### Script: set red at z sp two again.
 Reference Audio：
 
-<audio controls src="Grid/sample3/s28-pgwpza_for_swie9n.wav" title="Title"></audio>
+<audio controls src="Grid/sample3/s28-pgwpza_for_sraz2a.wav" title="Title"></audio>
 <table border="1">
     <tr>
         <td>
 
 <video  width="330" height="170" controls>
-  <source src="Grid/sample3/EmoDubber@s28_swie9n.mp4" type="video/mp4">
+  <source src="Grid/sample3/EmoDubber@s28_sraz2a.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 <figcaption>EmoDubber</figcaption>
         </td>
         <td>
 <video  width="330" height="170" controls>
-  <source src="Grid/sample3/ProDubber@s28_swie9n.mp4" type="video/mp4">
+  <source src="Grid/sample3/ProDubber@s28_sraz2a.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 <figcaption>ProDubber</figcaption>
@@ -122,14 +122,14 @@ Reference Audio：
         <tr>
         <td>
 <video  width="330" height="170" controls>
-  <source src="Grid/sample3/Ours@s28_swie9n.mp4" type="video/mp4">
+  <source src="Grid/sample3/Ours@s28_sraz2a.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 <figcaption>Ours</figcaption>
         </td>
         <td>
 <video  width="330" height="170" controls>
-  <source src="Grid/sample3/gt@s28_swie9n.mp4" type="video/mp4">
+  <source src="Grid/sample3/gt@s28_sraz2a.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 <figcaption>GT</figcaption>
