@@ -1,14 +1,21 @@
 ## SyncVoice: Towards Video Dubbing with Vision-Augmented Pretrained TTS Model
 
-[Result on GRID Dub 2.0 Setting](#Setting1V2C) \
-[Result on EN-EN Test-set](#Setting2V2C) \
-[Result on EN-ZH Test-set](#zeroshot)
+<!-- **Training on GRID Dataset**
+- [GRID Dub 2.0 Setting](#Setting1V2C) -->
 
-![alt text](Figure/method.jpg)
+**Training on LRS3 Dataset**
+- [EN-EN Test-set](#Setting2V2C)
+
+**Training on Internal Bilingual Dataset**
+- [EN-EN Test-set](#Setting3V2C)
+- [ZH-ZH Test-set](#Setting4V2C)
+
+
+<!-- <img src="Figure/method.jpg" width="600"> -->
 
 ## Abstract
-Video dubbing aims to generate high-fidelity speech that is precisely temporally aligned with the visual content. Existing methods still suffer from limitations in speech naturalness and audio-visual synchronization, and most do not account for multilingual applications. To address these issues, we build upon the pretrained text-to-speech (TTS) model and fine-tune it on an audio-visual dataset to achieve audio-visual consistency. Furthermore, we propose a Dual Speaker Encoder to effectively mitigate inter-language interference in cross-lingual speech synthesis. We also explore the application of video dubbing in video translation scenarios. Experimental results show that our method outperforms existing state-of-the-art video dubbing models in both speech quality and synchronization performance, and demonstrates potential for video translation tasks.
-
+Video dubbing aims to generate high-fidelity speech that is temporally aligned with visual content. However, existing methods still suffer from limited speech naturalness and insufficient audio-visual synchronization, and are often confined to monolingual settings. To address these challenges, we propose SyncVoice, a vision-augmented framework that integrates a Text-Visual Fusion Module into a pretrained text-to-speech (TTS) system. This module aligns multi-modal visual features with linguistic representations, enabling temporally synchronized speech synthesis. Experiments on the publicly available LRS3 dataset show that SyncVoice achieves state-of-the-art performance in zero-shot dubbing, surpassing prior methods in both speech quality and synchronization accuracy. Scaling training to a large-scale Chinese-English bilingual audio-visual dataset further enhances vocal fidelity while preserving synchronization, enabling a unified model for both Chinese and English dubbing.
+<!-- 
 
 <a id="Setting1V2C"></a>
 
@@ -135,292 +142,466 @@ Reference Audio：
 <figcaption>GT</figcaption>
         </td>
     </tr>
-</table>
+</table> -->
 
 
 <a id="Setting2V2C"></a>
 
-### EN-EN test-set sample
-### Sample #1
-#### Script: And while his fellow Republicans squabble over the budget, Governor Walker is off pursuing his presidential ambitions.
-Reference Audio：
-
-<audio controls src="en2en/sample1/ref_RD_Radio12_S00005.wav" title="Title"></audio>
-<table border="1">
-    <tr>
-        <td>
-
-<video  width="330" height="170" controls>
-  <source src="en2en/sample1/TTS@RD_Radio12_S00005.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-<figcaption>Zero-shot TTS</figcaption>
-        </td>
-        <td>
-<video  width="330" height="170" controls>
-  <source src="en2en/sample1/M1@RD_Radio12_S00005.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-<figcaption>M1</figcaption>
-        </td>
-        </tr>
-        <tr>
-        <td>
-<video  width="330" height="170" controls>
-  <source src="en2en/sample1/M3_Ours@RD_Radio12_S00005.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-<figcaption>M3 (Ours)</figcaption>
-        </td>
-        <td>
-<video  width="330" height="170" controls>
-  <source src="en2en/sample1/gt@RD_Radio12_S00005.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-<figcaption>GT</figcaption>
-        </td>
-    </tr>
-</table>
-
-
-### Sample #2
-#### Script: But Fred Korematsu never stopped fighting for justice and civil rights for all Americans. And we must do the same. We must continue to stand up for all immigrants and fight to keep history from repeating itself.
-Reference Audio：
-
-<audio controls src="en2en/sample2/ref_WDA_MazieHirono1_S00023.wav" title="Title"></audio>
-<table border="1">
-    <tr>
-        <td>
-
-<video  width="330" height="170" controls>
-  <source src="en2en/sample2/TTS@WDA_MazieHirono1_S00023.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-<figcaption>Zero-shot TTS</figcaption>
-        </td>
-        <td>
-<video  width="330" height="170" controls>
-  <source src="en2en/sample2/M1@WDA_MazieHirono1_S00023.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-<figcaption>M1</figcaption>
-        </td>
-        </tr>
-        <tr>
-        <td>
-<video  width="330" height="170" controls>
-  <source src="en2en/sample2/M3_Ours@WDA_MazieHirono1_S00023.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-<figcaption>M3 (Ours)</figcaption>
-        </td>
-        <td>
-<video  width="330" height="170" controls>
-  <source src="en2en/sample2/gt@WDA_MazieHirono1_S00023.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-<figcaption>GT</figcaption>
-        </td>
-    </tr>
-</table>
-
-
-### Sample #3
-#### Script: Patient lives are impacted. Diagnoses are made. Treatments are administered and healing begins.
-Reference Audio：
-
-<audio controls src="en2en/sample3/ref_WRA_JimInhofe_S00008.wav" title="Title"></audio>
-<table border="1">
-    <tr>
-        <td>
-
-<video  width="330" height="170" controls>
-  <source src="en2en/sample3/TTS@WRA_JimInhofe_S00008.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-<figcaption>Zero-shot TTS</figcaption>
-        </td>
-        <td>
-<video  width="330" height="170" controls>
-  <source src="en2en/sample3/M1@WRA_JimInhofe_S00008.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-<figcaption>M1</figcaption>
-        </td>
-        </tr>
-        <tr>
-        <td>
-<video  width="330" height="170" controls>
-  <source src="en2en/sample3/M3_Ours@WRA_JimInhofe_S00008.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-<figcaption>M3 (Ours)</figcaption>
-        </td>
-        <td>
-<video  width="330" height="170" controls>
-  <source src="en2en/sample3/gt@WRA_JimInhofe_S00008.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-<figcaption>GT</figcaption>
-        </td>
-    </tr>
-</table>
-
-
-<a id="zeroshot"></a>
-
-### EN-ZH test-set sample
+### EN-EN test-set sample (LRS3 for training)
 
 ### Sample #1
-#### Script: 这包括要求对教师和各类学校员工进行背景核查，保障开除学生的权利，强化监管。
-#### Reference:
-That includes requiring background checks for teachers and other school employees, rights for student expulsion, strengthening oversight
-<video width="320" height="140" controls>
-  <source src="en2zh/sample1/ref@RD_Radio1_S00005.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+#### Script: We must also make major structural changes to our state's jobs agency to protect against outsourcing and cronyism and create good family supporting jobs.
+Reference Audio：
 
+<audio controls src="LRS3/sample1/RD_Radio17_S00002.wav" title="Title"></audio>
 <table border="1">
     <tr>
         <td>
 
 <video  width="330" height="170" controls>
-  <source src="en2zh/sample1/TTS@RD_Radio1_S00005_1.mp4" type="video/mp4">
+  <source src="LRS3/sample1/aligndit@RD_Radio17_S00005.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
-<figcaption>Zero-shot TTS</figcaption>
+<figcaption>AlignDIT</figcaption>
         </td>
         <td>
 <video  width="330" height="170" controls>
-  <source src="en2zh/sample1/M1@RD_Radio1_S00005_1.mp4" type="video/mp4">
+  <source src="LRS3/sample1/voicecraft@RD_Radio17_S00005.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
-<figcaption>M1</figcaption>
+<figcaption>VoiceCraft-Dub</figcaption>
+        </td>
+        </tr>
+        <tr>
+        <td>
+<video  width="330" height="170" controls>
+  <source src="LRS3/sample1/syncvoice@RD_Radio17_S00005.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<figcaption>Ours</figcaption>
         </td>
         <td>
 <video  width="330" height="170" controls>
-  <source src="en2zh/sample1/M2@RD_Radio1_S00005_1.mp4" type="video/mp4">
+  <source src="LRS3/sample1/gt@RD_Radio17_S00005.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
-<figcaption>M2</figcaption>
-        </td>
-        <td>
-<video  width="330" height="170" controls>
-  <source src="en2zh/sample1/M4@RD_Radio1_S00005_1.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-<figcaption>M4</figcaption>
-        </td>
-    <td>
-<video  width="330" height="170" controls>
-  <source src="en2zh/sample1/M5_Ours@RD_Radio1_S00005_1.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-<figcaption>M5 (Ours)</figcaption>
+<figcaption>GT</figcaption>
         </td>
     </tr>
 </table>
-
-
-
 
 ### Sample #2
-#### Script: 在国会，众议院民主党人为民履职，顺应民意，以压倒性多数通过了H.R.六号《美国梦想与承诺法案》，此案早逾一百六十天送抵参院。
-#### Reference:
- In Congress, House Democrats have delivered for the people and honored their will by overwhelmingly passing H.R. 6, the American Dream and Promise Act, sent to the Senate over 160 days ago.
-<video width="320" height="140" controls>
-  <source src="en2zh/sample2/ref@WDA_VeronicaEscobar0_S00008.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+#### Script: His unwavering mission to bring equality and a more civilized society to the United States is something that we must remember through all walks of our lives.
+Reference Audio：
 
+<audio controls src="LRS3/sample2/WRA_LisaMurkowski0_S00007.wav" title="Title"></audio>
 <table border="1">
     <tr>
         <td>
 
 <video  width="330" height="170" controls>
-  <source src="en2zh/sample2/TTS@WDA_VeronicaEscobar0_S00008_2.mp4" type="video/mp4">
+  <source src="LRS3/sample2/aligndit@WRA_LisaMurkowski0_S00004.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
-<figcaption>Zero-shot TTS</figcaption>
+<figcaption>AlignDIT</figcaption>
         </td>
         <td>
 <video  width="330" height="170" controls>
-  <source src="en2zh/sample2/M1@WDA_VeronicaEscobar0_S00008_2.mp4" type="video/mp4">
+  <source src="LRS3/sample2/voicecraft@WRA_LisaMurkowski0_S00004.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
-<figcaption>M1</figcaption>
+<figcaption>VoiceCraft-Dub</figcaption>
+        </td>
+        </tr>
+        <tr>
+        <td>
+<video  width="330" height="170" controls>
+  <source src="LRS3/sample2/syncvoice@WRA_LisaMurkowski0_S00004.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<figcaption>Ours</figcaption>
         </td>
         <td>
 <video  width="330" height="170" controls>
-  <source src="en2zh/sample2/M2@WDA_VeronicaEscobar0_S00008_2.mp4" type="video/mp4">
+  <source src="LRS3/sample2/gt@WRA_LisaMurkowski0_S00004.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
-<figcaption>M2</figcaption>
+<figcaption>GT</figcaption>
+        </td>
+    </tr>
+</table>
+
+### Sample #3
+#### Script: And that LGBTQ Nevadans are treated with the respect that they deserve.
+Reference Audio：
+
+<audio controls src="LRS3/sample3/WDA_CatherineCortezMasto_S00010.wav" title="Title"></audio>
+<table border="1">
+    <tr>
+        <td>
+
+<video  width="330" height="170" controls>
+  <source src="LRS3/sample3/aligndit@WDA_CatherineCortezMasto_S00007.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<figcaption>AlignDIT</figcaption>
         </td>
         <td>
 <video  width="330" height="170" controls>
-  <source src="en2zh/sample2/M4@WDA_VeronicaEscobar0_S00008_2.mp4" type="video/mp4">
+  <source src="LRS3/sample3/voicecraft@WDA_CatherineCortezMasto_S00007.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
-<figcaption>M4</figcaption>
+<figcaption>VoiceCraft-Dub</figcaption>
         </td>
-    <td>
+        </tr>
+        <tr>
+        <td>
 <video  width="330" height="170" controls>
-  <source src="en2zh/sample2/M5_Ours@WDA_VeronicaEscobar0_S00008_2.mp4" type="video/mp4">
+  <source src="LRS3/sample3/syncvoice@WDA_CatherineCortezMasto_S00007.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
-<figcaption>M5 (Ours)</figcaption>
+<figcaption>Ours</figcaption>
+        </td>
+        <td>
+<video  width="330" height="170" controls>
+  <source src="LRS3/sample3/gt@WDA_CatherineCortezMasto_S00007.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<figcaption>GT</figcaption>
         </td>
     </tr>
 </table>
 
 
-### Sample #3
-#### Script: 扭转嗜瘾趋势，需用全面而周详的策略，且务必涵盖治疗、预防、教育、以及对康复个体的支持，并加大遏制力度。
-#### Reference:
-Reversing the tide of addiction will take a comprehensive, thoughtful approach and must include strategies for treatment, prevention, education, support for individuals in recovery, and increased interdiction.
-<video width="320" height="140" controls>
-  <source src="en2zh/sample3/ref@WRA_KellyAyotte_S00014.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+<a id="Setting3V2C"></a>
 
+### EN-EN test-set sample (Bilingual version)
+
+### Sample #1
+#### Script: We must also make major structural changes to our state's jobs agency to protect against outsourcing and cronyism and create good family supporting jobs.
+Reference Audio：
+
+<audio controls src="en2en/sample1/RD_Radio17_S00002.wav" title="Title"></audio>
 <table border="1">
     <tr>
         <td>
+<video  width="220" height="130" controls>
+  <source src="en2en/sample1/zipvoice@RD_Radio17_S00005.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<figcaption>Pretrained TTS</figcaption>
+        </td>
+        <td>
+<video  width="220" height="130" controls>
+  <source src="en2en/sample1/novisual@RD_Radio17_S00005.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<figcaption>Ours</figcaption>
+        </td>
+        <td>
+<video  width="220" height="130" controls>
+  <source src="en2en/sample1/face@RD_Radio17_S00005.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<figcaption>Ours (Face)</figcaption>
+        </td>
+        </tr>
+        <tr>
+        <td>
+<video  width="220" height="130" controls>
+  <source src="en2en/sample1/lip@RD_Radio17_S00005.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<figcaption>Ours (Lip)</figcaption>
+        </td>
+        <td>
+<video  width="220" height="130" controls>
+  <source src="en2en/sample1/face_lip@RD_Radio17_S00005.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<figcaption>Ours (Face & Lip)</figcaption>
+        </td>
+        <td>
+<video  width="220" height="130" controls>
+  <source src="en2en/sample1/gt@RD_Radio17_S00005.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<figcaption>GT</figcaption>
+        </td>
+    </tr>
+</table>
 
-<video  width="330" height="170" controls>
-  <source src="en2zh/sample3/TTS@WRA_KellyAyotte_S00014_2.mp4" type="video/mp4">
+### Sample #2
+#### Script: His unwavering mission to bring equality and a more civilized society to the United States is something that we must remember through all walks of our lives.
+Reference Audio：
+
+<audio controls src="en2en/sample2/WRA_LisaMurkowski0_S00007.wav" title="Title"></audio>
+<table border="1">
+    <tr>
+        <td>
+<video  width="220" height="130" controls>
+  <source src="en2en/sample2/zipvoice@WRA_LisaMurkowski0_S00004.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
-<figcaption>Zero-shot TTS</figcaption>
+<figcaption>Pretrained TTS</figcaption>
         </td>
         <td>
-<video  width="330" height="170" controls>
-  <source src="en2zh/sample3/M1@WRA_KellyAyotte_S00014_2.mp4" type="video/mp4">
+<video  width="220" height="130" controls>
+  <source src="en2en/sample2/novisual@WRA_LisaMurkowski0_S00004.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
-<figcaption>M1</figcaption>
+<figcaption>Ours</figcaption>
         </td>
         <td>
-<video  width="330" height="170" controls>
-  <source src="en2zh/sample3/M2@WRA_KellyAyotte_S00014_2.mp4" type="video/mp4">
+<video  width="220" height="130" controls>
+  <source src="en2en/sample2/face@WRA_LisaMurkowski0_S00004.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
-<figcaption>M2</figcaption>
+<figcaption>Ours (Face)</figcaption>
+        </td>
+        </tr>
+        <tr>
+        <td>
+<video  width="220" height="130" controls>
+  <source src="en2en/sample2/lip@WRA_LisaMurkowski0_S00004.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<figcaption>Ours (Lip)</figcaption>
         </td>
         <td>
-<video  width="330" height="170" controls>
-  <source src="en2zh/sample3/M4@WRA_KellyAyotte_S00014_2.mp4" type="video/mp4">
+<video  width="220" height="130" controls>
+  <source src="en2en/sample2/lip_face@WRA_LisaMurkowski0_S00004.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
-<figcaption>M4</figcaption>
+<figcaption>Ours (Face & Lip)</figcaption>
         </td>
-    <td>
-<video  width="330" height="170" controls>
-  <source src="en2zh/sample3/M5_Ours@WRA_KellyAyotte_S00014_2.mp4" type="video/mp4">
+        <td>
+<video  width="220" height="130" controls>
+  <source src="en2en/sample2/gt@WRA_LisaMurkowski0_S00004.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
-<figcaption>M5 (Ours)</figcaption>
+<figcaption>GT</figcaption>
+        </td>
+    </tr>
+</table>
+
+### Sample #3
+#### Script: And that LGBTQ Nevadans are treated with the respect that they deserve.
+Reference Audio：
+
+<audio controls src="en2en/sample3/WDA_CatherineCortezMasto_S00010.wav" title="Title"></audio>
+<table border="1">
+    <tr>
+        <td>
+<video  width="220" height="130" controls>
+  <source src="en2en/sample3/zipvoice@WDA_CatherineCortezMasto_S00007.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<figcaption>Pretrained TTS</figcaption>
+        </td>
+        <td>
+<video  width="220" height="130" controls>
+  <source src="en2en/sample3/novisual@WDA_CatherineCortezMasto_S00007.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<figcaption>Ours</figcaption>
+        </td>
+        <td>
+<video  width="220" height="130" controls>
+  <source src="en2en/sample3/face@WDA_CatherineCortezMasto_S00007.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<figcaption>Ours (Face)</figcaption>
+        </td>
+        </tr>
+        <tr>
+        <td>
+<video  width="220" height="130" controls>
+  <source src="en2en/sample3/lip@WDA_CatherineCortezMasto_S00007.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<figcaption>Ours (Lip)</figcaption>
+        </td>
+        <td>
+<video  width="220" height="130" controls>
+  <source src="en2en/sample3/face_lip@WDA_CatherineCortezMasto_S00007.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<figcaption>Ours (Face & Lip)</figcaption>
+        </td>
+        <td>
+<video  width="220" height="130" controls>
+  <source src="en2en/sample3/gt@WDA_CatherineCortezMasto_S00007.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<figcaption>GT</figcaption>
+        </td>
+    </tr>
+</table>
+
+
+<a id="Setting4V2C"></a>
+
+### ZH-ZH test-set sample (Bilingual version)
+
+### Sample #1
+#### Script: 哎呦，我记得最开始的时候，我我就想我比较喜欢挑战。
+Reference Audio：
+
+<audio controls src="zh2zh/sample1/s01864_001_00015.wav" title="Title"></audio>
+<table border="1">
+    <tr>
+        <td>
+<video  width="220" height="130" controls>
+  <source src="zh2zh/sample1/zipvoice@s01864_s01864_001_00014.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<figcaption>Pretrained TTS</figcaption>
+        </td>
+        <td>
+<video  width="220" height="130" controls>
+  <source src="zh2zh/sample1/novisual@s01864_s01864_001_00014.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<figcaption>Ours</figcaption>
+        </td>
+        <td>
+<video  width="220" height="130" controls>
+  <source src="zh2zh/sample1/face@s01864_s01864_001_00014.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<figcaption>Ours (Face)</figcaption>
+        </td>
+        </tr>
+        <tr>
+        <td>
+<video  width="220" height="130" controls>
+  <source src="zh2zh/sample1/lip@s01864_s01864_001_00014.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<figcaption>Ours (Lip)</figcaption>
+        </td>
+        <td>
+<video  width="220" height="130" controls>
+  <source src="zh2zh/sample1/face_lip@s01864_s01864_001_00014.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<figcaption>Ours (Face & Lip)</figcaption>
+        </td>
+        <td>
+<video  width="220" height="130" controls>
+  <source src="zh2zh/sample1/gt@s01864_s01864_001_00014.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<figcaption>GT</figcaption>
+        </td>
+    </tr>
+</table>
+
+### Sample #2
+#### Script: 然后在秋天的时候，又要拉家带口的，再飞回到好望角一带，每次的这个飞行里程应该都在一万公里以上。
+Reference Audio：
+
+<audio controls src="zh2zh/sample2/s00714_001_00023.wav" title="Title"></audio>
+<table border="1">
+    <tr>
+        <td>
+<video  width="220" height="130" controls>
+  <source src="zh2zh/sample2/zipvoice@s00714_s00714_001_00014.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<figcaption>Pretrained TTS</figcaption>
+        </td>
+        <td>
+<video  width="220" height="130" controls>
+  <source src="zh2zh/sample2/novisual@s00714_s00714_001_00014.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<figcaption>Ours</figcaption>
+        </td>
+        <td>
+<video  width="220" height="130" controls>
+  <source src="zh2zh/sample2/face@s00714_s00714_001_00014.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<figcaption>Ours (Face)</figcaption>
+        </td>
+        </tr>
+        <tr>
+        <td>
+<video  width="220" height="130" controls>
+  <source src="zh2zh/sample2/lip@s00714_s00714_001_00014.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<figcaption>Ours (Lip)</figcaption>
+        </td>
+        <td>
+<video  width="220" height="130" controls>
+  <source src="zh2zh/sample2/face_lip@s00714_s00714_001_00014.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<figcaption>Ours (Face & Lip)</figcaption>
+        </td>
+        <td>
+<video  width="220" height="130" controls>
+  <source src="zh2zh/sample2/gt@s00714_s00714_001_00014.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<figcaption>GT</figcaption>
+        </td>
+    </tr>
+</table>
+
+### Sample #3
+#### Script: 接下来呢我们再来关注黑龙江七台河福瑞祥煤矿透水事故救援的最新进展。
+Reference Audio：
+
+<audio controls src="zh2zh/sample3/n018_00005_001.wav" title="Title"></audio>
+<table border="1">
+    <tr>
+        <td>
+<video  width="220" height="130" controls>
+  <source src="zh2zh/sample3/zipvoice@n018_n018_00007_001.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<figcaption>Pretrained TTS</figcaption>
+        </td>
+        <td>
+<video  width="220" height="130" controls>
+  <source src="zh2zh/sample3/novisual@n018_n018_00007_001.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<figcaption>Ours</figcaption>
+        </td>
+        <td>
+<video  width="220" height="130" controls>
+  <source src="zh2zh/sample3/face@n018_n018_00007_001.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<figcaption>Ours (Face)</figcaption>
+        </td>
+        </tr>
+        <tr>
+        <td>
+<video  width="220" height="130" controls>
+  <source src="zh2zh/sample3/lip@n018_n018_00007_001.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<figcaption>Ours (Lip)</figcaption>
+        </td>
+        <td>
+<video  width="220" height="130" controls>
+  <source src="zh2zh/sample3/face_lip@n018_n018_00007_001.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<figcaption>Ours (Face & Lip)</figcaption>
+        </td>
+        <td>
+<video  width="220" height="130" controls>
+  <source src="zh2zh/sample3/gt@n018_n018_00007_001.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<figcaption>GT</figcaption>
         </td>
     </tr>
 </table>
