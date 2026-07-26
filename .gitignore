@@ -39,6 +39,7 @@ download/
 
 # External repositories are cloned from upstream during setup.
 sup/*
+!sup/README.md
 
 # Local legacy helpers superseded by README.md and tools/
 USAGE_GUIDE.md

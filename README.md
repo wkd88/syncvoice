@@ -38,15 +38,17 @@ pip install -r requirements.txt
 Run commands from the repository root.
 
 ```bash
-# Upstream visual backends + extractor weights -> checkpoints/visual/
+# Creates sup/ and downloads visual backends + extractor weights
 python tools/setup_visual_backends.py
 
 # SyncVoice acoustic model -> checkpoints/syncvoice/lrs_exp/
 python tools/download_weights.py
 ```
 
-Code under `sup/` stays under upstream licenses. Visual weights are only needed
-when `.lip.npy` / `.face.npy` are missing.
+`sup/` is empty in Git on purpose. `setup_visual_backends.py` creates it and
+clones Lipreading TCN, EmoNet, and ibug face tools there (see
+[sup/README.md](sup/README.md)). Those trees stay under upstream licenses.
+Visual weights are only needed when `.lip.npy` / `.face.npy` are missing.
 
 ## Extract visual features
 
@@ -105,7 +107,7 @@ Details: [EVALUATION.md](EVALUATION.md).
 tools/                 # download, extract, infer, setup helpers
 zipvoice/
   bin/  eval/  models/  visual/
-sup/                   # upstream backends (untracked)
+sup/                   # created by setup scripts; see sup/README.md
 checkpoints/           # downloaded weights (untracked)
 EVALUATION.md  NOTICE  THIRD_PARTY.md
 ```

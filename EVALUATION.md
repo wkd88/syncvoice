@@ -15,7 +15,8 @@ pip install -r requirements-eval.txt
 python tools/setup_evaluation.py
 ```
 
-This clones LatentSync into `sup/LatentSync` and downloads:
+This creates `sup/` if needed, clones LatentSync into `sup/LatentSync`, and
+downloads:
 
 - `auxiliary/syncnet_v2.model`
 - `auxiliary/sfd_face.pth`
