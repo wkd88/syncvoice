@@ -1,0 +1,38 @@
+SyncVoice
+Copyright 2026 SyncVoice contributors
+
+This product includes software developed by SyncVoice contributors and
+third-party projects. This NOTICE file is for informational attribution
+only and does not modify the License.
+
+Apache License 2.0 applies to original SyncVoice code and to modifications
+that their copyright holders may license under Apache-2.0. Third-party
+directories, cloned backends, models, and weights remain under their own
+terms. See THIRD_PARTY.md.
+
+------------------------------------------------------------------------------
+Portions derived from ZipVoice
+https://github.com/k2-fsa/ZipVoice
+Copyright 2025 Xiaomi Corp. (and other ZipVoice contributors listed in
+upstream source headers)
+Licensed under the Apache License, Version 2.0
+
+When ZipVoice source files say "See LICENSE for clarification regarding
+multiple authors", refer to the upstream ZipVoice project and this NOTICE.
+------------------------------------------------------------------------------
+Portions of speaker-conditioning modules follow Tortoise TTS patterns
+https://github.com/neonbjb/tortoise-tts
+Licensed under the Apache License, Version 2.0
+------------------------------------------------------------------------------
+Optional evaluation modules retain Xiaomi Corp. / ZipVoice copyright headers
+and use models from:
+- https://huggingface.co/k2-fsa/TTS_eval_models
+- https://github.com/bytedance/LatentSync
+- https://huggingface.co/ByteDance/LatentSync-1.6
+------------------------------------------------------------------------------
+Visual backends are obtained from upstream and are not redistributed with
+this repository by default:
+- https://github.com/mpc001/Lipreading_using_Temporal_Convolutional_Networks
+- https://github.com/face-analysis/emonet
+- https://github.com/hhj1897/face_detection
+- https://github.com/hhj1897/face_alignment

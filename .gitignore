@@ -1,0 +1,86 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# IDE / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Models and generated features
+checkpoints/
+*.pt
+*.pth
+*.bin
+*.ckpt
+*.safetensors
+*.onnx
+*.model
+*.zip
+*.lip.npy
+*.face.npy
+*.spk.npy
+
+# Experiments, downloaded assets, and outputs
+egs/
+data/
+results/
+logs/
+wandb/
+runs/
+test/
+download/
+
+# External repositories are cloned from upstream during setup.
+sup/*
+
+# Local legacy helpers superseded by README.md and tools/
+USAGE_GUIDE.md
+infer.sh
+prepare.py
+
+# Public scope: SyncVoice inference, visual features, and evaluation only.
+zipvoice/eval/*
+!zipvoice/eval/__init__.py
+!zipvoice/eval/utils.py
+!zipvoice/eval/models/
+!zipvoice/eval/models/**
+!zipvoice/eval/mos/
+!zipvoice/eval/mos/**
+!zipvoice/eval/speaker_similarity/
+!zipvoice/eval/speaker_similarity/**
+!zipvoice/eval/wer/
+!zipvoice/eval/wer/**
+!zipvoice/eval/sync/
+zipvoice/eval/sync/*
+!zipvoice/eval/sync/__init__.py
+!zipvoice/eval/sync/latentsync_v2.py
+zipvoice/eval/**/__pycache__/
+zipvoice/bin/infer_zipvoice_dialog.py
+zipvoice/bin/infer_zipvoice_onnx.py
+zipvoice/bin/onnx_export.py
+zipvoice/bin/train_zipvoice_dialog.py
+zipvoice/bin/train_zipvoice_dialog_stereo.py
+zipvoice/bin/train_zipvoice_distill.py
+zipvoice/models/zipvoice_dialog.py
+zipvoice/models/zipvoice_distill.py
+zipvoice/models/modules/zipformer_two_stream.py
+
+# Media
+*.wav
+*.mp3
+*.mp4
+*.avi
+*.mov
+
+# Bundled demo assets for a quick try
+!examples/target.mp4
+!examples/target.wav
+!examples/target.lip.npy
+!examples/target.face.npy

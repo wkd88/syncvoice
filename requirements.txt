@@ -1,0 +1,23 @@
+--find-links https://k2-fsa.github.io/icefall/piper_phonemize.html
+
+# Install matching torch, torchaudio and torchvision builds first.
+numpy
+lhotse
+huggingface_hub
+safetensors
+vocos
+tqdm
+gdown
+opencv-python-headless
+scikit-image
+av
+
+# Normalization
+cn2an
+inflect
+
+# Tokenization
+jieba
+piper_phonemize
+pypinyin
+setuptools<81

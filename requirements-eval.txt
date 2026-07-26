@@ -1,0 +1,28 @@
+# Install matching torch, torchvision, and torchaudio builds separately.
+
+# Audio quality, speaker similarity, and ASR evaluation
+librosa
+soundfile
+scipy
+transformers
+funasr
+jiwer
+zhconv
+zhon
+s3prl
+
+# ByteDance LatentSync v2 official sync-confidence evaluation
+scenedetect
+python_speech_features
+decord
+einops
+matplotlib
+imageio
+imageio-ffmpeg
+ffmpeg-python
+omegaconf
+
+# Shared runtime utilities used by the evaluation CLIs
+numpy
+tqdm
+huggingface_hub
