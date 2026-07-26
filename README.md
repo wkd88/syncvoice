@@ -121,11 +121,8 @@ and EmoNet have separate non-commercial or redistribution restrictions; see
 ## References
 
 - ZipVoice: https://github.com/k2-fsa/ZipVoice
-- SyncVoice weights: https://huggingface.co/kaidi555/SyncVoice
 - Lipreading TCN: https://github.com/mpc001/Lipreading_using_Temporal_Convolutional_Networks
 - EmoNet: https://github.com/face-analysis/emonet
 - ibug face detection / alignment: https://github.com/hhj1897/face_detection , https://github.com/hhj1897/face_alignment
 - LatentSync: https://github.com/bytedance/LatentSync
-- LatentSync checkpoints: https://huggingface.co/ByteDance/LatentSync-1.6
-- ZipVoice TTS evaluation models: https://huggingface.co/k2-fsa/TTS_eval_models
 - SpeechMOS (UTMOS): https://github.com/tarepan/SpeechMOS
