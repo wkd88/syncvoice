@@ -1,6 +1,6 @@
 # Evaluation
 
-[Back to README](README.md) · [Batch inference](docs/USAGE.md#batch-inference)
+[Back to README](README.md)
 
 Optional objective metrics for SyncVoice outputs: perceptual quality (UTMOS),
 speaker similarity (SIM-o), intelligibility (WER), and audio-visual
@@ -21,15 +21,7 @@ pip install -r requirements-eval.txt
 python tools/setup_evaluation.py
 ```
 
-This creates `sup/` if needed, clones LatentSync into `sup/LatentSync`, and
-downloads:
-
-- `auxiliary/syncnet_v2.model`
-- `auxiliary/sfd_face.pth`
-
-from Hugging Face (`ByteDance/LatentSync-1.6`). If GitHub is unavailable, place
-an official LatentSync checkout at `sup/LatentSync` and rerun the command to
-fetch checkpoints only.
+This downloads the LatentSync backend and its evaluation checkpoints.
 
 For SIM-o, UTMOS, or WER, also download the ZipVoice TTS evaluation models
 (several GB):
@@ -42,19 +34,9 @@ Models land under `checkpoints/evaluation/tts`.
 
 ## Audio-visual synchronization
 
-Requires LatentSync's `syncnet_v2.model`. The legacy ZipVoice SyncNet path is
-not used.
-
 ```bash
 python -m zipvoice.eval.sync.latentsync_v2 \
   --video results/result.mp4
-```
-
-Directory of videos:
-
-```bash
-python -m zipvoice.eval.sync.latentsync_v2 \
-  --input-dir results
 ```
 
 - **Sync confidence**: higher means stronger audio–lip correspondence.
@@ -117,9 +99,8 @@ SIM-o and Seed-TTS WER use a headerless TSV with actual tab separators:
 prompt_audio<TAB>prompt_text<TAB>target_audio_or_video<TAB>target_text
 ```
 
-Generated files follow [batch inference](docs/USAGE.md#batch-inference) naming:
-`<target_parent>_<target_stem>.wav`. Seed-TTS WER and SIM-o also accept six-field
-multilingual rows with three target texts and `_0`, `_1`, `_2` output suffixes.
+Place generated audio in `--wav-path`, named `<target_parent>_<target_stem>.wav`
+to match the evaluator. For example, `data/clip.mp4` maps to `data_clip.wav`.
 
 HuBERT WER uses a different, headerless `transcript.tsv`:
 
@@ -130,5 +111,4 @@ generated_filename_without_extension<TAB>reference_text
 For example, `data_clip<TAB>Reference words here` refers to
 `results/testset/data_clip.wav`. UTMOS does not need a transcript list.
 
-When publishing results, report model revisions, SyncNet checkpoint, language,
-sample count, and preprocessing protocol.
+
