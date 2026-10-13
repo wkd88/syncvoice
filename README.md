@@ -1,128 +1,95 @@
 # SyncVoice
 
-SyncVoice is a face- and lip-conditioned text-to-speech model built on
-[ZipVoice](https://github.com/k2-fsa/ZipVoice). Given text, a speaker prompt,
-and a talking-face video, it generates speech that better matches lip motion
-and facial expression. The released checkpoint is trained on LRS3.
+**Simple and Effective Automatic Video Dubbing with Vision-Augmented TTS.**
 
-This repository covers inference, visual feature extraction, and optional
-evaluation. Weights and test media are not stored in Git.
+[SyncVoice](https://arxiv.org/abs/2512.05126) builds on
+[ZipVoice](https://github.com/k2-fsa/ZipVoice) to generate
+speech from text, a speaker prompt, and a talking-face video. This release
+provides an LRS3-trained checkpoint, inference tools, visual feature extraction,
+and optional evaluation.
 
-Weights: [kaidi555/SyncVoice](https://huggingface.co/kaidi555/SyncVoice)
+[Paper](https://arxiv.org/abs/2512.05126) ·
+[Model weights](https://huggingface.co/kaidi555/SyncVoice) ·
+[Usage guide](docs/USAGE.md) · [Evaluation](EVALUATION.md) ·
+[Third-party components](THIRD_PARTY.md)
 
-## Requirements
+## Quick start
 
-- Linux
-- Python 3.10
-- NVIDIA GPU with CUDA 12.1 recommended
-- FFmpeg on `PATH`
-- [Git LFS](https://git-lfs.github.com/) (for visual extractor weights)
+Use Linux with Python 3.10 and FFmpeg. An NVIDIA GPU with CUDA 12.1 is recommended;
+the environment below installs PyTorch 2.5.1 and its CUDA 12.1 runtime.
+Run all commands from the repository root.
 
-## Installation
+### 1. Install
 
 ```bash
+git clone https://github.com/wkd88/syncvoice.git
+cd syncvoice
 conda env create -f environment.yml
 conda activate syncvoice
 ```
 
-Or:
+For an existing environment, see [manual installation](docs/USAGE.md#manual-installation).
+
+### 2. Download the model
 
 ```bash
-conda create -n syncvoice python=3.10 ffmpeg -c conda-forge
-conda activate syncvoice
-pip install torch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1 \
-  --index-url https://download.pytorch.org/whl/cu121
-pip install -r requirements.txt
-```
-
-Run commands from the repository root.
-
-```bash
-# Creates sup/ and downloads visual backends + extractor weights
-python tools/setup_visual_backends.py
-
-# SyncVoice acoustic model -> checkpoints/syncvoice/lrs_exp/
 python tools/download_weights.py
 ```
 
-`sup/` is empty in Git on purpose. `setup_visual_backends.py` creates it and
-clones Lipreading TCN, EmoNet, and ibug face tools there (see
-[sup/README.md](sup/README.md)). Those trees stay under upstream licenses.
-Visual weights are only needed when `.lip.npy` / `.face.npy` are missing.
+This downloads `checkpoint-55000.pt`, `model.json`, and `tokens.txt` into
+`checkpoints/syncvoice/lrs_exp/`. The vocoder is downloaded on first use, so keep
+network access available for the first run.
 
-## Extract visual features
+### 3. Run the included example
 
-```bash
-python tools/extract_visual_features.py examples/target.mp4 \
-  --weights-dir checkpoints/visual
-```
-
-Or pass a directory of MP4 files. Writes `*.lip.npy` / `*.face.npy` beside
-each video (reused unless `--overwrite`).
-
-## Inference
-
-A demo clip is shipped under `examples/` (`target.mp4`, `target.wav`,
-`target.lip.npy`, `target.face.npy`). Use your own `prompt.wav`, or reuse
-`examples/target.wav` for a smoke test:
+The repository includes a video, its reference audio, and precomputed lip/face
+features in `examples/`. No visual backend setup is needed for this example.
 
 ```bash
 python tools/infer_syncvoice.py \
-  --model-name zipvoice \
   --model-dir checkpoints/syncvoice/lrs_exp \
-  --checkpoint-name checkpoint-55000.pt \
-  --visual-weights-dir checkpoints/visual \
-  --tokenizer emilia \
   --prompt-wav examples/target.wav \
   --prompt-text "You know, it is distinctive in many ways." \
   --text "You know, it is distinctive in many ways." \
   --video examples/target.mp4 \
   --res-wav-path results/result.wav \
-  --face-guidance-scale 0.5 \
-  --lip-guidance-scale 0.5 \
-  --guidance-scale 0.8 \
-  --num-step 16
+  --guidance-scale 0.8
 ```
 
-Missing visual features are extracted automatically; audio is also muxed to
-`results/result.mp4`.
+Outputs: `results/result.wav` and `results/result.mp4` (the input video with
+generated audio). This smoke test reuses the target audio as the speaker prompt;
+use a separate prompt to try another voice.
 
-- `--lip-guidance-scale` / `--face-guidance-scale`: visual conditioning strength
-- `--guidance-scale`: text guidance strength
-- `--no-use-prompt-feature`: disable prompt acoustic/visual prefixes (on by default)
-- `--wav`: duration reference when no same-stem WAV sits beside the video
+## Use your own video
+
+1. Prepare a speaker WAV and its transcript, the target text, and a target MP4.
+2. Place a same-stem WAV beside the target video (for example, `clip.mp4` and
+   `clip.wav`), or pass `--wav path/to/reference.wav`. **The current video inference
+   path requires this audio reference to determine the output duration.**
+3. If the video has no cached `.lip.npy` / `.face.npy` files, install
+   [Git LFS](https://git-lfs.github.com/) and run:
+
+   ```bash
+   python tools/setup_visual_backends.py
+   ```
+
+4. Adapt the quick-start command to your files and add
+   `--visual-weights-dir checkpoints/visual`. Missing visual features are
+   extracted automatically and saved beside the video.
+
+See the [usage guide](docs/USAGE.md) for input preparation, batch inference,
+guidance controls, and troubleshooting.
 
 ## Evaluation
 
-```bash
-pip install -r requirements-eval.txt
-python tools/setup_evaluation.py
-```
+The optional [evaluation guide](EVALUATION.md) covers audio-visual synchronization,
+speech quality (UTMOS), speaker similarity (SIM-o), and word error rate (WER),
+including model setup and input formats.
 
-Details: [EVALUATION.md](EVALUATION.md).
+## License and acknowledgements
 
-## Project layout
-
-```text
-tools/                 # download, extract, infer, setup helpers
-zipvoice/
-  bin/  eval/  models/  visual/
-sup/                   # created by setup scripts; see sup/README.md
-checkpoints/           # downloaded weights (untracked)
-EVALUATION.md  NOTICE  THIRD_PARTY.md
-```
-
-## License
-
-Original SyncVoice code is Apache-2.0. Visual backends such as Lipreading TCN
-and EmoNet have separate non-commercial or redistribution restrictions; see
-[THIRD_PARTY.md](THIRD_PARTY.md) and [NOTICE](NOTICE).
-
-## References
-
-- ZipVoice: https://github.com/k2-fsa/ZipVoice
-- Lipreading TCN: https://github.com/mpc001/Lipreading_using_Temporal_Convolutional_Networks
-- EmoNet: https://github.com/face-analysis/emonet
-- ibug face detection / alignment: https://github.com/hhj1897/face_detection , https://github.com/hhj1897/face_alignment
-- LatentSync: https://github.com/bytedance/LatentSync
-- SpeechMOS (UTMOS): https://github.com/tarepan/SpeechMOS
+Original SyncVoice code is released under [Apache-2.0](LICENSE). The project
+builds on ZipVoice and uses third-party visual and evaluation components.
+Their code and weights retain their own terms, including non-commercial
+restrictions for some visual backends. See [THIRD_PARTY.md](THIRD_PARTY.md)
+and [NOTICE](NOTICE) for sources and attribution.

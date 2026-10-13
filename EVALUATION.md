@@ -1,14 +1,20 @@
 # Evaluation
 
+[Back to README](README.md) · [Batch inference](docs/USAGE.md#batch-inference)
+
 Optional objective metrics for SyncVoice outputs: perceptual quality (UTMOS),
 speaker similarity (SIM-o), intelligibility (WER), and audio-visual
 synchronization (LatentSync v2).
 
 Audio metrics follow the ZipVoice evaluation protocol. Sync confidence uses
-the official ByteDance LatentSync v2 evaluator. Upstream links are listed in
-the README [References](README.md#references).
+the official ByteDance LatentSync v2 evaluator. Upstream sources and terms are
+listed in [THIRD_PARTY.md](THIRD_PARTY.md).
 
 ## Setup
+
+First complete the [installation](README.md#1-install). Run commands from the
+repository root in the activated environment. Evaluation dependencies are not
+needed for inference.
 
 ```bash
 pip install -r requirements-eval.txt
@@ -103,15 +109,26 @@ python -m zipvoice.eval.wer.hubert \
   --model-dir checkpoints/evaluation/tts
 ```
 
-## Test-list format
+## Test-list formats
+
+SIM-o and Seed-TTS WER use a headerless TSV with actual tab separators:
 
 ```text
 prompt_audio<TAB>prompt_text<TAB>target_audio_or_video<TAB>target_text
 ```
 
-Generated files follow inference naming: `<target_parent>_<target_stem>.wav`.
-Seed-TTS WER and SIM-o also accept six-field multilingual rows with three
-target texts.
+Generated files follow [batch inference](docs/USAGE.md#batch-inference) naming:
+`<target_parent>_<target_stem>.wav`. Seed-TTS WER and SIM-o also accept six-field
+multilingual rows with three target texts and `_0`, `_1`, `_2` output suffixes.
+
+HuBERT WER uses a different, headerless `transcript.tsv`:
+
+```text
+generated_filename_without_extension<TAB>reference_text
+```
+
+For example, `data_clip<TAB>Reference words here` refers to
+`results/testset/data_clip.wav`. UTMOS does not need a transcript list.
 
 When publishing results, report model revisions, SyncNet checkpoint, language,
 sample count, and preprocessing protocol.

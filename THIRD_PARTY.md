@@ -60,13 +60,6 @@ redistribution of its pretrained weights is permitted before hosting them.
 
 Vocos is downloaded at runtime and is not distributed with this repository.
 
-## Tortoise TTS (speaker conditioning)
-
-- Source: https://github.com/neonbjb/tortoise-tts
-- Role: `ConditioningEncoder` / speaker-conditioning blocks used by ZipVoice-style
-  models when global speaker conditioning is enabled.
-- License: Apache License 2.0
-
 ## Sync evaluation (LatentSync)
 
 Audio-visual synchronization evaluation delegates to ByteDance's official
@@ -116,3 +109,4 @@ license and source metadata in the model card and do not upload a third-party
 weight unless redistribution is allowed.
 
 Evaluation model downloads and cached assets must not be committed.
+
