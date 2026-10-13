@@ -1,15 +1,9 @@
 # Example inputs
 
-A small demo clip is included for a quick try:
+`target.mp4`, `target.wav`, `target.lip.npy`, and `target.face.npy` are included
+for the [quick-start example](../README.md#3-run-the-included-example).
+The WAV supplies the duration reference and, for the smoke test, the speaker
+prompt. Cached features let you try inference without installing visual backends.
 
-```text
-target.mp4
-target.wav
-target.lip.npy
-target.face.npy
-```
-
-Provide your own speaker prompt as `prompt.wav` (or pass `--prompt-wav`).
-For a smoke test you can reuse `target.wav` as the prompt.
-
-Other local media under `examples/` remain ignored by Git.
+For your own media, follow the [input guide](../docs/USAGE.md#prepare-inputs).
+Other local media in this directory remain ignored by Git.
