@@ -28,8 +28,6 @@ conda env create -f environment.yml
 conda activate syncvoice
 ```
 
-For an existing environment, see [manual installation](docs/USAGE.md#manual-installation).
-
 ### 2. Download the model
 
 ```bash
@@ -77,8 +75,7 @@ use a separate prompt to try another voice.
    `--visual-weights-dir checkpoints/visual`. Missing visual features are
    extracted automatically and saved beside the video.
 
-See the [usage guide](docs/USAGE.md) for input preparation, batch inference,
-guidance controls, and troubleshooting.
+See the [usage guide](docs/USAGE.md) for input preparation, visual feature extraction, and generation controls.
 
 ## Evaluation
 
@@ -93,3 +90,5 @@ builds on ZipVoice and uses third-party visual and evaluation components.
 Their code and weights retain their own terms, including non-commercial
 restrictions for some visual backends. See [THIRD_PARTY.md](THIRD_PARTY.md)
 and [NOTICE](NOTICE) for sources and attribution.
+
+
